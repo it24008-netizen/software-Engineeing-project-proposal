@@ -209,6 +209,9 @@ Possible future enhancements include:
 **Development Model:** Incremental Model  
 **Data Storage:** CSV File  
 
+<img width="618" height="1106" alt="image" src="https://github.com/user-attachments/assets/0a2f82d2-19b1-4f8c-bdae-b8e85b619694" />
+
+
 ---
 
 *This project is developed for academic purposes to demonstrate software engineering concepts and object-oriented programming in Java.*
