@@ -1,0 +1,64 @@
+@startuml
+
+title Personal Expense Tracker - UML Class Diagram
+
+class Main {
+    +main(args: String[]): void
+}
+
+class Category {
+    -name: String
+    +getName(): String
+}
+
+class Expense {
+    -id: int
+    -title: String
+    -amount: double
+    -date: String
+    -description: String
+    +getAmount(): double
+}
+
+class ExpenseManager {
+    -expenses: List<Expense>
+    +addExpense(expense: Expense): void
+    +updateExpense(expense: Expense): void
+    +deleteExpense(id: int): void
+    +searchExpense(keyword: String)
+    +getTotalExpenses(): double
+}
+
+class ExpenseReport {
+    +generateReport(): void
+    +calculateTotal(): double
+}
+
+class ExpenseStorage {
+    +saveExpenses(): void
+    +loadExpenses(): List<Expense>
+}
+
+class ExpenseController {
+    -manager: ExpenseManager
+    -storage: ExpenseStorage
+    +addExpense(): void
+    +updateExpense(): void
+    +deleteExpense(): void
+}
+
+class ExpenseFrame {
+    -controller: ExpenseController
+    +displayWindow(): void
+    +refreshTable(): void
+}
+
+Main ..> ExpenseFrame : starts
+ExpenseFrame --> ExpenseController : uses
+ExpenseController --> ExpenseManager : manages
+ExpenseController --> ExpenseStorage : saves/loads
+ExpenseManager "1" o-- "*" Expense : manages
+ExpenseReport ..> ExpenseManager : generates reports
+Expense --> Category : belongs to
+
+@enduml
